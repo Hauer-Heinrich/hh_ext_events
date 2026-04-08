@@ -1,0 +1,5 @@
+mod.wizards.newContentElement.wizardItems {
+    events {
+        header = Events
+    }
+}

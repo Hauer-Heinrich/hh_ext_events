@@ -1,0 +1,37 @@
+routeEnhancers:
+  PageTypeSuffix:
+    type: PageType
+    map:
+      events.json: 813475
+
+  EventPluginList:
+    type: Extbase
+    extension: HhExtEvents
+    plugin: Eventlist
+    defaultController: 'Event::list'
+    routes:
+      - routePath: '/{slug}'
+        _controller: 'Event::list'
+        _arguments:
+          slug: event
+    aspects:
+      slug:
+        type: PersistedAliasMapper
+        tableName: tx_hhextevents_domain_model_event
+        routeFieldName: slug
+
+  EventPluginDetail:
+    type: Extbase
+    extension: HhExtEvents
+    plugin: Eventdetail
+    defaultController: 'Event::show'
+    routes:
+      - routePath: '/{slug}'
+        _controller: 'Event::show'
+        _arguments:
+          slug: event
+    aspects:
+      slug:
+        type: PersistedAliasMapper
+        tableName: tx_hhextevents_domain_model_event
+        routeFieldName: slug

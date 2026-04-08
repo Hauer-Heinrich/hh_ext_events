@@ -1,0 +1,15 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+    data-namespace-typo3-fluid="true">
+
+<f:if condition="{site.settings.HhExtEvents.cssFile}">
+    <f:asset.css identifier="hhextevents.events" href="{site.settings.HhExtEvents.cssFile}" />
+</f:if>
+<f:if condition="{site.settings.HhExtEvents.jsFile}">
+    <f:asset.script identifier="hhextevents.events" src="{site.settings.HhExtEvents.jsFile}" />
+</f:if>
+
+<f:flashMessages />
+
+<f:render section="Main" optional="true" />
+
+</html>

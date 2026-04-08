@@ -1,0 +1,16 @@
+categories:
+  HhExtEvents.assets:
+    label: 'Assets'
+
+settings:
+  HhExtEvents.cssFile:
+    category: HhExtEvents.assets
+    label: 'Include CSS file'
+    type: string
+    default: 'EXT:hh_ext_events/Resources/Public/Css/events.min.css'
+
+  HhExtEvents.jsFile:
+    category: HhExtEvents.assets
+    label: 'Include JavaScript file'
+    type: string
+    default: 'EXT:hh_ext_events/Resources/Public/JavaScript/events.min.js'

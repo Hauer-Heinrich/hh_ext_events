@@ -1,0 +1,55 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+    data-namespace-typo3-fluid="true">
+
+<f:layout name="Default" />
+
+<f:section name="Main">
+    <f:if condition="{events}">
+        <div class="events"
+            data-columns="{f:if(condition: '{settings.field.columnsCount}', then: '{settings.field.columnsCount}', else: '1')}"
+            data-readmore-title="{f:translate(key: 'event.readmore', extensionName: 'HhExtEvents')}"
+        >
+            <f:for each="{events}" as="event">
+                <article class="event">
+                    <f:if condition="{event.teaser_media}">
+                        <div class="ce-gallery">
+                            <f:for each="{event.teaser_media}" as="media">
+                                <div class="ce-column">
+                                    <picture>
+                                        <source srcset="{f:uri.image(image:'{media}', maxWidth: '600', fileExtension: 'webp')}" type="image/webp" media="(min-width: 401px)">
+                                        <source srcset="{f:uri.image(image:'{media}', maxWidth: '400', fileExtension: 'webp')}" type="image/webp" media="(min-width: 321px)">
+                                        <source srcset="{f:uri.image(image:'{media}', maxWidth: '320', fileExtension: 'webp')}" type="image/webp" media="(min-width: 200px)">
+                                        <f:image image="{media}" loading="lazy" />
+                                    </picture>
+                                </div>
+                            </f:for>
+                        </div>
+                    </f:if>
+                    <f:if condition="{event.event_dates}">
+                        <div class="dates event-dates">
+                            <f:for each="{event.event_dates}" as="date">
+                                <f:if condition="{date.start_date}"><f:format.date date="{date.start_date}" format="%d.%m.%Y" /></f:if>
+                                <f:if condition="{date.start_date} && {date.end_date}">-</f:if>
+                                <f:if condition="{date.end_date}"><f:format.date date="{date.end_date}" format="%d.%m.%Y" /></f:if>
+                            </f:for>
+                        </div>
+                    </f:if>
+                    <header>
+                        <h1><f:link.action action="detail" pageUid="{settings.detailPage}" arguments="{event: '{event.uid}'}">{event.title}</f:link.action></h1>
+                    </header>
+                    <f:if condition="{event.teaser}">
+                        <div class="ce-bodytext">
+                            <f:format.html>{event.teaser}</f:format.html>
+                        </div>
+                    </f:if>
+                </article>
+            </f:for>
+        </div>
+    </f:if>
+
+    <f:if condition="{settings.listPage}">
+        <f:link.typolink parameter="{settings.listPage}" class="back-link back-to-list">Zur Eventübersicht</f:link.typolink>
+    </f:if>
+</f:section>
+
+</html>

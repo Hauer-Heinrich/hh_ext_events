@@ -1,0 +1,68 @@
+plugin.tx_hhextevents {
+    view {
+        templateRootPaths {
+            0 = EXT:hh_ext_events/Resources/Private/Templates/
+            10 = {$plugin.tx_hhextevents.view.templateRootPath}
+        }
+        partialRootPaths {
+            0 = EXT:hh_ext_events/Resources/Private/Partials/
+            10 = {$plugin.tx_hhextevents.view.partialRootPath}
+        }
+        layoutRootPaths {
+            0 = EXT:hh_ext_events/Resources/Private/Layouts/
+            10 = {$plugin.tx_hhextevents.view.layoutRootPath}
+        }
+    }
+
+    settings {
+        defaultHeaderType = {$styles.content.defaultHeaderType}
+        flashMessages = {$plugin.tx_hhextevents.settings.flashMessages}
+    }
+
+    persistence {
+        storagePid = {$plugin.tx_hhextevents.persistence.storagePid}
+        #recursive = 1
+        storagePidOrganizations = {$plugin.tx_hhextevents.persistence.storagePidOrganizations}
+        storagePidContactPointAddresses = {$plugin.tx_hhextevents.persistence.storagePidContactPointAddresses}
+    }
+
+    features {
+        ### if set to 1, the enable fields are ignored in BE context
+        ignoreAllEnableFieldsInBe = 0
+        ### Should be on by default, but can be disabled if all action in the plugin are uncached
+        requireCHashArgumentForActionArguments = 1
+    }
+
+    mvc {
+        #callDefaultActionIfActionCantBeResolved = 1
+    }
+}
+
+eventsDetailJsonView = PAGE
+eventsDetailJsonView {
+    typeNum = 813475
+
+    config {
+        disableAllHeaderCode = 1
+        additionalHeaders {
+            10.header = Content-Type:application/json;charset=utf-8
+            20.header = X-Robots-Tag:noindex
+        }
+        xhtml_cleaning = 0
+        debug = 0
+        no_cache = 1
+        admPanel = 0
+        removeDefaultJS = 1
+        removeDefaultCss = 1
+        index_enable = 0
+    }
+
+    10 = USER
+    10 {
+        userFunc = TYPO3\CMS\Extbase\Core\Bootstrap->run
+        extensionName = HhExtEvents
+        pluginName = Eventlist
+        vendorName = HauerHeinrich
+        controller = Event
+    }
+}

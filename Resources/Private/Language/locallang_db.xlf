@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+    <file source-language="en" datatype="plaintext" original="messages" date="2017-07-23T09:46:36Z" product-name="hh_ext_events">
+        <header/>
+        <body>
+            <trans-unit id="plugin.group.title">
+                <source>Events</source>
+            </trans-unit>
+
+            <trans-unit id="plugin.eventlist.title">
+                <source>Events list</source>
+            </trans-unit>
+            <trans-unit id="plugin.eventlist.description">
+                <source></source>
+            </trans-unit>
+
+            <trans-unit id="plugin.eventdetail.title">
+                <source>Event show / detail</source>
+            </trans-unit>
+            <trans-unit id="plugin.eventdetail.description">
+                <source></source>
+            </trans-unit>
+
+            <trans-unit id="plugin.eventcalendar.title">
+                <source>Event calendar</source>
+            </trans-unit>
+            <trans-unit id="plugin.eventcalendar.description">
+                <source></source>
+            </trans-unit>
+
+            <trans-unit id="event_attendance_mode.offline">
+                <source>Offline</source>
+            </trans-unit>
+            <trans-unit id="event_attendance_mode.online">
+                <source>Online</source>
+            </trans-unit>
+            <trans-unit id="event_attendance_mode.hybrid">
+                <source>Hybrid (offline and online)</source>
+            </trans-unit>
+
+            <trans-unit id="event_status.scheduled">
+                <source>Scheduled</source>
+            </trans-unit>
+            <trans-unit id="event_status.cancelled">
+                <source>Cancelled</source>
+            </trans-unit>
+            <trans-unit id="event_status.movedonline">
+                <source>Moved online</source>
+            </trans-unit>
+            <trans-unit id="event_status.postponed">
+                <source>Postponed</source>
+            </trans-unit>
+            <trans-unit id="event_status.rescheduled">
+                <source>Rescheduled</source>
+            </trans-unit>
+
+            <trans-unit id="tx_hhextevents_domain_model_event.record_type.default">
+                <source>Event</source>
+            </trans-unit>
+            <trans-unit id="tx_hhextevents_domain_model_event.record_type.internal">
+                <source>Internal event link</source>
+            </trans-unit>
+            <trans-unit id="tx_hhextevents_domain_model_event.record_type.external">
+                <source>External event link</source>
+            </trans-unit>
+            <trans-unit id="tx_hhextevents_domain_model_event.internal_url.label">
+                <source>Internal link</source>
+            </trans-unit>
+            <trans-unit id="tx_hhextevents_domain_model_event.internal_url.description">
+                <source></source>
+            </trans-unit>
+            <trans-unit id="tx_hhextevents_domain_model_event.external_url.label">
+                <source>Link to external url</source>
+            </trans-unit>
+            <trans-unit id="tx_hhextevents_domain_model_event.external_url.description">
+                <source></source>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

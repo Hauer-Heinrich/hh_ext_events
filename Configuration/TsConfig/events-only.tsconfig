@@ -1,0 +1,7 @@
+mod {
+    web_list {
+        listOnlyInSingleTableView = 0
+        allowedNewTables = sys_note,tx_hhextevents_domain_model_event
+        hideTables = tt_content
+    }
+}

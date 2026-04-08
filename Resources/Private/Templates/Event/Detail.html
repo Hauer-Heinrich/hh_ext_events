@@ -1,0 +1,156 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+    data-namespace-typo3-fluid="true">
+
+<f:layout name="Default" />
+
+<f:section name="Main"><f:debug>{_all}</f:debug>
+    <f:if condition="{event}">
+        <f:if condition="{event.bannerMedia}">
+            <div class="ce-gallery event-banner">
+                <f:for each="{event.bannerMedia}" as="banner">
+                    <div class="ce-column">
+                        <figure>
+                            <picture>
+                                <source srcset="{f:uri.image(image:'{banner}', maxWidth: '1920', fileExtension: 'webp')}" type="image/webp" media="(min-width: 1601px)">
+                                <source srcset="{f:uri.image(image:'{banner}', maxWidth: '1600', fileExtension: 'webp')}" type="image/webp" media="(min-width: 1334px)">
+                                <source srcset="{f:uri.image(image:'{banner}', maxWidth: '1333', fileExtension: 'webp')}" type="image/webp" media="(min-width: 1001px)">
+                                <source srcset="{f:uri.image(image:'{banner}', maxWidth: '1000', fileExtension: 'webp')}" type="image/webp" media="(min-width: 801px)">
+                                <source srcset="{f:uri.image(image:'{banner}', maxWidth: '800', fileExtension: 'webp')}" type="image/webp" media="(min-width: 601px)">
+                                <source srcset="{f:uri.image(image:'{banner}', maxWidth: '600', fileExtension: 'webp')}" type="image/webp" media="(min-width: 401px)">
+                                <source srcset="{f:uri.image(image:'{banner}', maxWidth: '400', fileExtension: 'webp')}" type="image/webp" media="(min-width: 321px)">
+                                <source srcset="{f:uri.image(image:'{banner}', maxWidth: '320', fileExtension: 'webp')}" type="image/webp" media="(min-width: 200px)">
+                                <img src="{f:uri.image(image:'{banner}')}"
+                                    {f:if(condition: '{data.imagewidth}', then: 'width="{data.imagewidth}"', else: 'width="{banner.originalResource.properties.width}"')}
+                                    {f:if(condition: '{data.imageheight}', then: 'height="{data.imageheight}"', else: 'height="{banner.originalResource.properties.height}"')}
+                                    {f:if(condition: '{banner.originalResource.title}', then: 'title="{banner.originalResource.title}"')}
+                                    {f:if(condition: '{banner.originalResource.alternative}', then: 'alt="{banner.originalResource.alternative}"', else: 'alt=""')}
+                                    loading="eager"
+                                    fetchpriority="high"
+                                />
+                            </picture>
+                        </figure>
+                    </div>
+                </f:for>
+            </div>
+        </f:if>
+        <div class="event">
+            <header>
+                <f:if condition="{event.title}">
+                    <h1>{event.title}</h1>
+                </f:if>
+            </header>
+
+            <f:if condition="{event.description}">
+                <div class="ce-bodytext event-description">
+                    <f:format.html>{event.description}</f:format.html>
+                </div>
+            </f:if>
+
+            <f:if condition="{event.eventDates}">
+                <div class="event-dates">
+                    <h2><f:translate key="event.eventDates" /></h2>
+                    <ul>
+                        <f:for each="{event.eventDates}" as="eventDate">
+                            <li>
+                                <f:render section="eventdate" arguments="{date: '{eventDate}'}" />
+                            </li>
+                        </f:for>
+                    </ul>
+                </div>
+            </f:if>
+
+            <f:if condition="{event.media}">
+                <div class="ce-gallery event-media">
+                    <f:for each="{event.media}" as="media">
+                        <div class="ce-column">
+                            <figure>
+                                <picture>
+                                    <source srcset="{f:uri.image(image:'{media}', maxWidth: '800', fileExtension: 'webp')}" type="image/webp" media="(min-width: 601px)">
+                                    <source srcset="{f:uri.image(image:'{media}', maxWidth: '600', fileExtension: 'webp')}" type="image/webp" media="(min-width: 401px)">
+                                    <source srcset="{f:uri.image(image:'{media}', maxWidth: '400', fileExtension: 'webp')}" type="image/webp" media="(min-width: 321px)">
+                                    <source srcset="{f:uri.image(image:'{media}', maxWidth: '320', fileExtension: 'webp')}" type="image/webp" media="(min-width: 200px)">
+                                    <img src="{f:uri.image(image:'{media}', maxWidth: '{data.imagewidth}')}"
+                                        {f:if(condition: '{data.imagewidth}', then: 'width="{data.imagewidth}"', else: 'width="{media.originalResource.properties.width}"')}
+                                        {f:if(condition: '{data.imageheight}', then: 'height="{data.imageheight}"', else: 'height="{media.originalResource.properties.height}"')}
+                                        {f:if(condition: '{media.originalResource.title}', then: 'title="{media.originalResource.title}"')}
+                                        {f:if(condition: '{media.originalResource.alternative}', then: 'alt="{media.originalResource.alternative}"', else: 'alt=""')}
+                                        loading="lazy"
+                                    />
+                                </picture>
+                            </figure>
+                        </div>
+                    </f:for>
+                </div>
+            </f:if>
+
+            <f:if condition="{event.locations}">
+                <div class="event-locations">
+                    <f:for each="{event.locations}" as="location">
+                        <div class="event-location">
+                            <span class="title">{location.title}</span>
+
+                            <address>
+                                <f:if condition="{location.address}">
+                                    {location.address}<br>
+                                </f:if>
+                                <f:spaceless>
+                                    <f:if condition="{location.zip}">
+                                        {location.zip}
+                                    </f:if>
+                                    <f:if condition="{location.city}">
+                                        {location.city}
+                                    </f:if><f:if condition="{location.country}">, {location.country}</f:if>
+                                </f:spaceless>
+                            </address>
+                            <f:if condition="{location.company} && {location.address} && {location.city}">
+                                <a href="https://www.google.com/maps/search/?api=1&query={location.company},{location.address},{location.zip} {location.city}" target="_blank">Open in Google Maps</a>
+                            </f:if>
+                        </div>
+                    </f:for>
+                </div>
+            </f:if>
+
+            <f:if condition="{event.organizers}">
+                <div class="event-organizers">
+                    <f:for each="{event.organizers}" as="organizer">
+                        <div class="event-organizer">
+                            <span class="title">{organizer.company}</span>
+
+                            <address>
+                                <f:if condition="{organizer.address}">
+                                    {organizer.address}<br>
+                                </f:if>
+                                <f:spaceless>
+                                    <f:if condition="{organizer.zip}">
+                                        {organizer.zip}
+                                    </f:if>
+                                    <f:if condition="{organizer.city}">
+                                        {organizer.city}
+                                    </f:if><f:if condition="{organizer.country}">, {organizer.country}</f:if>
+                                </f:spaceless>
+                            </address>
+                        </div>
+                    </f:for>
+                </div>
+            </f:if>
+        </div>
+
+        <f:render section="schemaorg" arguments="{schemaJson: '{schemaJson}'}" />
+    </f:if>
+</f:section>
+
+<f:section name="eventdate">
+    <f:if condition="{date}">
+        <f:spaceless>
+            <f:if condition="{date.startDate}"><time datetime="{f:format.date(date: '{date.startDate}', format:'c')}"><f:format.date format="{f:translate(key:'event.dateFormat')}">{date.startDate}</f:format.date></time><f:translate key="event.timeSuffix" /></f:if>
+        </f:spaceless>
+    </f:if>
+</f:section>
+
+<f:section name="schemaorg">
+    <f:if condition="{schemaJson}">
+        <f:asset.script identifier="event-schema-json" additionalAttributes="{type: 'application/ld+json'}"><f:format.raw>{schemaJson}</f:format.raw></f:asset.script>
+    </f:if>
+</f:section>
+
+</html>

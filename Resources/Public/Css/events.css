@@ -1,0 +1,85 @@
+.frame-type-hhextevents_eventlist {
+    & > .events {
+        display: grid;
+        grid-template-columns: 100%;
+        column-gap: var(--event-item-column-gap, 20px);
+        row-gap: var(--event-item-row-gap, 20px);
+
+        &[data-columns="2"] {
+            grid-template-columns: repeat(auto-fill, minmax(max(100% / 2 - var(--event-item-column-gap, 20px), var(--event-item-min-width, 320px)), 2fr));
+        }
+
+        &[data-columns="3"] {
+            grid-template-columns: repeat(auto-fill, minmax(max(100% / 3 - var(--event-item-column-gap, 20px), var(--event-item-min-width, 320px)), 3fr));
+        }
+
+        &[data-columns="4"] {
+            grid-template-columns: repeat(auto-fill, minmax(max(100% / 4 - var(--event-item-column-gap, 20px), var(--event-item-min-width, 320px)), 4fr));
+        }
+    }
+
+    & .event {
+        border-radius: var(--border-radius, 10px);
+        box-shadow: var(--box-shadow);
+        overflow: hidden;
+
+         & > *:not(.ce-gallery) {
+            grid-column-start: 2;
+            grid-column-end: 3;
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+
+        & > *:not(.ce-gallery):first-child,
+        & > .ce-gallery + * {
+            padding-top: 10px;
+        }
+
+        & > *:last-child {
+            align-self: flex-end;
+            padding-bottom: 10px;
+        }
+    }
+
+    & .back-to-list {
+        margin-top: 20px;
+    }
+}
+
+.frame.frame-type-hhextevents_eventlist {
+    container-type: inline-size;
+    container-name: eventsContainer;
+}
+
+@container eventsContainer (width > 600px) {
+    .events {
+        & .event {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            grid-auto-rows: auto;
+            grid-auto-flow: row;
+            column-gap: 20px;
+            position: relative;
+
+            & > *:not(.ce-gallery) {
+                grid-column-start: 2;
+                grid-column-end: 3;
+                padding-left: 0;
+            }
+
+            & > .ce-gallery {
+                grid-column-start: 1;
+                grid-column-end: 1;
+                grid-row: 1 / 999; /* von erster bis letzter Reihe */
+                height: 100%;
+                position: absolute;
+                width: 100%;
+
+                & .ce-column,
+                & img {
+                    height: 100%;
+                }
+            }
+        }
+    }
+}

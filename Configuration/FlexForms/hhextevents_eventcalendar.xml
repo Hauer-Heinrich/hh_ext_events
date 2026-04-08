@@ -1,0 +1,30 @@
+<T3DataStructure>
+    <meta>
+         <langDisable>1</langDisable>
+    </meta>
+    <sheets>
+        <main>
+            <ROOT>
+               <TCEforms>
+                   <sheetTitle>Einstellungen</sheetTitle>
+               </TCEforms>
+               <type>array</type>
+               <el>
+                    <settings.field.showPaginationAfter>
+                        <label>Pagination after?</label>
+                        <description></description>
+                        <config>
+                            <type>check</type>
+                            <items>
+                                <numIndex index="0" type="array">
+                                    <numIndex index="0">anzeigen</numIndex>
+                                    <numIndex index="1">1</numIndex>
+                                </numIndex>
+                            </items>
+                        </config>
+                    </settings.field.showPaginationAfter>
+                </el>
+            </ROOT>
+        </main>
+    </sheets>
+</T3DataStructure>

@@ -1,0 +1,38 @@
+[
+    {
+        "outdir": ".",
+        "entryPoints": [
+            { "in": "./Resources/Public/Css/events.css", "out": "./Resources/Public/Css/events.min" }
+        ],
+        "bundle": true,
+        "write": true,
+        "minify": true,
+        "sourcemap": true,
+        "logLevel": "info",
+        "external": [
+            "./Images/*", "../Images/*",
+            "./Fonts/*", "../Fonts/*",
+            "./Icons/*", "../Icons/*",
+            "./Static/*", "../Static/*",
+            "./public/*", "../public/*",
+            "./static/*", "../static/*"
+        ],
+        "supported": {
+            "nesting": false
+        }
+    },
+    {
+        "outdir": ".",
+        "entryPoints": [
+            { "in": "./Resources/Public/JavaScript/events.js", "out": "./Resources/Public/JavaScript/events.min" }
+        ],
+        "bundle": false,
+        "write": true,
+        "minify": true,
+        "sourcemap": true,
+        "logLevel": "info",
+        "supported": {
+            "nesting": false
+        }
+    }
+]

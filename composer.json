@@ -1,0 +1,45 @@
+{
+    "name": "hauerheinrich/hh-ext-events",
+    "type": "typo3-cms-extension",
+    "description": "Hauer-Heinrich - Events",
+    "authors": [
+        {
+            "name": "Christian Hackl",
+            "email": "info@hauer-heinrich.de",
+            "homepage": "http://www.hauer-heinrich.de",
+            "role": "Developer"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/Hauer-Heinrich/hh_ext_events/issues",
+        "source": "https://github.com/Hauer-Heinrich/hh_ext_events",
+        "docs": "https://github.com/Hauer-Heinrich/hh_ext_events/blob/master/README.md"
+    },
+    "license": ["MIT"],
+    "keywords": [
+        "TYPO3 CMS",
+        "extension",
+        "hauer-heinrich"
+    ],
+    "replace": {
+        "hauer-heinrich/hh_ext_events": "self.version",
+        "typo3-ter/hh-ext-events": "self.version"
+    },
+    "require": {
+        "typo3/cms-core": "^13.4.0",
+        "typo3/cms-fluid": "^13.4.0",
+        "typo3/cms-frontend": "^13.4.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "HauerHeinrich\\HhExtEvents\\": "Classes"
+        }
+    },
+    "extra": {
+        "typo3/cms": {
+            "cms-package-dir": "{$vendor-dir}/typo3/cms",
+            "web-dir": ".Build/Web",
+            "extension-key": "hh_ext_events"
+        }
+    }
+}
