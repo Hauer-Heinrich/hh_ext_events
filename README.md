@@ -56,6 +56,42 @@ plugin.tx_hhextevents {
 }
 ```
 
+#### Sitemap
+Example:
+If you use the seperate detail-plugin please use "tx_hhextevents_eventdetail" else "tx_hhextevents_eventlist"
+
+```
+plugin.tx_seo.config {
+    xmlSitemap {
+        sitemaps {
+            events {
+                provider = HauerHeinrich\HhExtEvents\XmlSitemap\RecordsXmlSitemapDataProvider
+                config {
+                    table = tx_hhextevents_domain_model_event
+                    sortField = sorting
+                    lastModifiedField = tstamp
+                    recursive = 1
+                    ### pid of the events (directory)
+                    pid = 57
+                    url {
+                        ### PageID of the detail-pape
+                        pageId = 89
+                        fieldToParameterMap {
+                            uid = tx_hhextevents_eventdetail[event]
+                        }
+                        additionalGetParameters {
+                            tx_hhextevents_eventdetail.controller = Event
+                            tx_hhextevents_eventdetail.action = detail
+                        }
+                        useCacheHash = 1
+                    }
+                }
+            }
+        }
+    }
+}
+```
+
 ## PageTS Options
 
 ### Add a custom event layout
@@ -69,6 +105,14 @@ TCEFORM.tt_content.pi_flexform.hhextevents_eventlist.layout.settings\.field\.eve
     }
 }
 ```
+
+---
+
+## Beautify URLs
+
+Don't forget to add a site config for your events.
+Example can be found **With site routing (`hh_ext_events/sites/config.yaml`):**
+It depends on whether you're displaying the event details using a details plugin or the list plugin; depending on which one you use, you'll need one configuration or the other—see the example.
 
 ---
 

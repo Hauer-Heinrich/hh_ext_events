@@ -4,22 +4,24 @@ routeEnhancers:
     map:
       events.json: 813475
 
-  EventPluginList:
-    type: Extbase
-    extension: HhExtEvents
-    plugin: Eventlist
-    defaultController: 'Event::list'
-    routes:
-      - routePath: '/{slug}'
-        _controller: 'Event::list'
-        _arguments:
-          slug: event
-    aspects:
-      slug:
-        type: PersistedAliasMapper
-        tableName: tx_hhextevents_domain_model_event
-        routeFieldName: slug
+  ### Use this if you don't use a page with detail-plugin
+  # EventPluginList:
+  #   type: Extbase
+  #   extension: HhExtEvents
+  #   plugin: Eventlist
+  #   defaultController: 'Event::list'
+  #   routes:
+  #     - routePath: '/{slug}'
+  #       _controller: 'Event::list'
+  #       _arguments:
+  #         slug: event
+  #   aspects:
+  #     slug:
+  #       type: PersistedAliasMapper
+  #       tableName: tx_hhextevents_domain_model_event
+  #       routeFieldName: slug
 
+  ### Use this if you use a detail-plugin on a page
   EventPluginDetail:
     type: Extbase
     extension: HhExtEvents

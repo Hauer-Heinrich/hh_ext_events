@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+    <file source-language="en" datatype="plaintext" original="messages" date="2026-07-23T09:46:36Z" product-name="hh_ext_events">
+        <header/>
+        <body>
+            <trans-unit id="settings.detailPage.label">
+                <source>Detail page</source>
+            </trans-unit>
+            <trans-unit id="settings.detailPage.description">
+                <source></source>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

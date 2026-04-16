@@ -35,7 +35,7 @@
                         </div>
                     </f:if>
                     <header>
-                        <h1><f:link.action action="detail" pageUid="{settings.detailPage}" arguments="{event: '{event.uid}'}">{event.title}</f:link.action></h1>
+                        <h1><f:link.action action="detail" pluginName="{f:if(condition: '{settings.detailPage}', then: 'eventdetail', else: 'eventlist')}" pageUid="{settings.detailPage}" arguments="{event: '{event.uid}'}">{event.title}</f:link.action></h1>
                     </header>
                     <f:if condition="{event.teaser}">
                         <div class="ce-bodytext">
